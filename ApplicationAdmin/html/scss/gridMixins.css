@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&family=Amiri&family=IBM+Plex+Mono:wght@300&family=Roboto:wght@100;300&family=Satisfy&family=Source+Serif+Pro:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&family=Amiri&family=IBM+Plex+Mono:wght@300&family=Roboto+Slab:wght@200&family=Roboto:wght@100;300&family=Satisfy&family=Source+Serif+Pro:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&family=Amiri&family=Cormorant:ital,wght@1,500&family=Courgette&family=IBM+Plex+Mono:wght@300&family=Roboto+Slab:wght@200&family=Roboto:wght@100;300&family=Satisfy&family=Source+Serif+Pro:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap");
+body > header {
+  text-align: center;
+  color: #125E3E;
+  font-size: 1.2em;
+  font-family: 'Cormorant', serif;
+}
+
+#main_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: 'Alegreya', serif;
+}
+
+#main_container #menu {
+  width: 15.5%;
+  margin-left: 1%;
+  border-radius: 5px;
+}
+
+#main_container #menu ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (3em)[3];
+      grid-template-rows: repeat(3, 3em);
+  list-style: none;
+  font-size: 1.1em;
+  background-color: #C5EFD3;
+  border-radius: 5px;
+}
+
+#main_container #content_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 81.5%;
+  margin-left: 1%;
+}
+
+#main_container #content_container h1 {
+  width: 48.5%;
+  margin-left: 34%;
+}
+
+#main_container #content_container .carte_commande {
+  width: 32%;
+  margin-left: 1%;
+  border-radius: 5px;
+  background-color: #a4b8cc;
+  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+}
+
+#main_container #content_container .carte_commande img {
+  padding-right: 40px;
+  width: 100px;
+  height: 100px;
+}
+
+#main_container #content_container .carte_commande:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#main_container #content_container .carte_detail_commande {
+  width: 48.5%;
+  margin-left: 1%;
+  background-color: #a4b8cc;
+  margin-bottom: 1em;
+}
+
+#main_container #content_container .carte_detail_commande p,
+#main_container #content_container .carte_detail_commande h3 {
+  padding-left: 20px;
+}
+
+#main_container #content_container .detail_commande {
+  width: 98%;
+  margin-left: 1%;
+  border-radius: 3px;
+  background-color: #ebf0ed73;
+  margin-bottom: 1em;
+}
+
+#main_container #content_container .detail_commande p {
+  padding-left: 20px;
+  border: 2px solid #a4b8cc;
+  height: 30px;
+}
+
+#main_container #login_container {
+  background-color: #d1e9ca;
+  margin-top: 50px;
+  width: 23.75%;
+  margin-left: 34%;
+  padding: 40px 60px 80px 60px;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#main_container #login_container #form_login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+}
+
+#main_container #login_container #btn_connecter {
+  margin-top: 20px;
+}
+
+#main_container #login_container h1 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#main_container #login_container #champ_login,
+#main_container #login_container #champ_password {
+  height: 20px;
+  border-radius: 5px;
+}
+
+#main_container #login_container #btn_connecter {
+  height: 30px;
+  background-color: white;
+  border-radius: 15px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#main_container #content_tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 81.5%;
+  margin-left: 1%;
+}
+
+#main_container #content_tab h1 {
+  width: 98%;
+  margin-left: 34%;
+}
+
+#main_container #content_tab #table {
+  width: 98%;
+  margin-left: 1%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  font-family: sans-serif;
+  -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#main_container #content_tab #table thead tr {
+  background-color: #7e97b1;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+#main_container #content_tab #table tbody tr:hover {
+  background-color: #f4e7d7;
+}
+
+#main_container #content_tab #table img {
+  width: 100px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+#main_container #content_tab #table tbody tr:nth-of-type(even) {
+  background-color: #d1e9ca;
+}
+
+#main_container #content_tab #table tbody tr:nth-of-type(even):hover {
+  background-color: #f4e7d7;
+}
+
+#main_container #content_table_chiffre_affaire {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 98%;
+  margin-left: 1%;
+}
+
+#main_container #content_table_chiffre_affaire h1 {
+  width: 98%;
+  margin-left: 34%;
+}
+
+#main_container #content_table_chiffre_affaire #table {
+  width: 98%;
+  margin-left: 1%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  font-family: sans-serif;
+  -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#main_container #content_table_chiffre_affaire #table thead tr {
+  background-color: #7e97b1;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+#main_container #content_table_chiffre_affaire #table tbody tr:hover {
+  background-color: #f4e7d7;
+}
+
+#main_container #content_table_chiffre_affaire #table img {
+  width: 100px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+#main_container #content_table_chiffre_affaire #table tbody tr:nth-of-type(even) {
+  background-color: #d1e9ca;
+}
+
+#main_container #content_table_chiffre_affaire #table tbody tr:nth-of-type(even):hover {
+  background-color: #f4e7d7;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4d4d4d;
+}
+/*# sourceMappingURL=gridMixins.css.map */

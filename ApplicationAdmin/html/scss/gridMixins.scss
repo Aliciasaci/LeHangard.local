@@ -1,0 +1,195 @@
+@import '_gridMixins';
+$total-columns: 12;
+$gutter: 1%;
+$offset: 0;
+body>header {
+    text-align: center;
+    color: #125E3E;
+    font-size: 1.2em;
+    font-family: 'Cormorant', serif;
+}
+
+#main_container {
+    @include row;
+    font-family: 'Alegreya', serif;
+    #menu {
+        @include col($total-columns, $gutter, 2, $offset);
+        ul {
+            display: grid;
+            grid-template-rows: repeat(3, 3em);
+            list-style: none;
+            font-size: 1.1em;
+            background-color: #C5EFD3;
+            border-radius: 5px;
+        }
+        border-radius: 5px;
+    }
+    #content_container {
+        @include row;
+        @include col($total-columns, $gutter, 10, $offset);
+        h1 {
+            @include col($total-columns, $gutter, 6, 4);
+        }
+        .carte_commande {
+            @include col($total-columns, $gutter, 4, $offset);
+            border-radius: 5px;
+            background-color: #a4b8cc;
+            margin-bottom: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1em;
+            img {
+                padding-right: 40px;
+                width: 100px;
+                height: 100px;
+            }
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            }
+        }
+        .carte_detail_commande {
+            @include col($total-columns, $gutter, 6, $offset);
+            background-color: #a4b8cc;
+            margin-bottom: 1em;
+            p,
+            h3 {
+                padding-left: 20px;
+            }
+        }
+        .detail_commande {
+            @include col($total-columns, $gutter, 12, $offset);
+            border-radius: 3px;
+            background-color: #ebf0ed73;
+            margin-bottom: 1em;
+            p {
+                padding-left: 20px;
+                border: 2px solid #a4b8cc;
+                height: 30px;
+            }
+        }
+    }
+    #login_container {
+        background-color: #d1e9ca;
+        margin-top: 50px;
+        @include col($total-columns, $gutter, 3, 4);
+        padding: 40px 60px 80px 60px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        #form_login {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+        }
+        #btn_connecter {
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #champ_login,
+        #champ_password {
+            height: 20px;
+            border-radius: 5px;
+        }
+        #btn_connecter {
+            height: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+    }
+    #content_tab {
+        @include row;
+        @include col($total-columns, $gutter, 10, $offset);
+        h1 {
+            @include col($total-columns, $gutter, 12, 4);
+        }
+        #table {
+            @include col($total-columns, $gutter, 12, $offset);
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1em;
+            font-family: sans-serif;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
+            text-align: center;
+            thead tr {
+                background-color: #7e97b1;
+                color: #ffffff;
+                text-align: center;
+                height: 50px;
+            }
+            tbody tr {
+                &:hover {
+                    background-color: lighten(burlywood, 20%);
+                }
+            }
+            img {
+                width: 100px;
+                height: 80px;
+                margin: 0;
+                padding: 0;
+            }
+            tbody tr:nth-of-type(even) {
+                background-color: #d1e9ca;
+                &:hover {
+                    background-color: lighten(burlywood, 20%);
+                }
+            }
+        }
+    }
+    #content_table_chiffre_affaire {
+        @include row;
+        @include col($total-columns, $gutter, 12, $offset);
+        h1 {
+            @include col($total-columns, $gutter, 12, 4);
+        }
+        #table {
+            @include col($total-columns, $gutter, 12, $offset);
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1em;
+            font-family: sans-serif;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
+            text-align: center;
+            thead tr {
+                background-color: #7e97b1;
+                color: #ffffff;
+                text-align: center;
+                height: 50px;
+            }
+            tbody tr {
+                &:hover {
+                    background-color: lighten(burlywood, 20%);
+                }
+            }
+            img {
+                width: 100px;
+                height: 80px;
+                margin: 0;
+                padding: 0;
+            }
+            tbody tr:nth-of-type(even) {
+                background-color: #d1e9ca;
+                &:hover {
+                    background-color: lighten(burlywood, 20%);
+                }
+            }
+        }
+    }
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+        color: lighten(black, 30%);
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&family=Amiri&family=IBM+Plex+Mono:wght@300&family=Roboto:wght@100;300&family=Satisfy&family=Source+Serif+Pro:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&family=Amiri&family=IBM+Plex+Mono:wght@300&family=Roboto+Slab:wght@200&family=Roboto:wght@100;300&family=Satisfy&family=Source+Serif+Pro:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&family=Amiri&family=Cormorant:ital,wght@1,500&family=Courgette&family=IBM+Plex+Mono:wght@300&family=Roboto+Slab:wght@200&family=Roboto:wght@100;300&family=Satisfy&family=Source+Serif+Pro:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');

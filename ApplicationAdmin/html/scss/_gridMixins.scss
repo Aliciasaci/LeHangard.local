@@ -1,0 +1,13 @@
+@mixin col($nb_col_grille, $gutter_width, $nb_col_element, $offset) {
+    //le offset
+    $one-column-width: (100% - (($nb_col_grille + 1) * ($gutter_width))) / ($nb_col_grille);
+    width: $nb_col_element * ($one-column-width) + ($nb_col_element - 1) * ($gutter_width); //le width d'un élément
+    margin-left: $offset *($one-column-width) + ($offset+1)*($gutter);
+}
+
+@mixin row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// ((100%*$nb_col_element)-($gutter*($nb_col_element)))/$nb_col_grille

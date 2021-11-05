@@ -1,0 +1,42 @@
+@import '_cssGrid';
+// @import '_reset';
+#titre {
+    text-align: center;
+}
+
+main {
+    @include grid;
+    #menu {
+        @include l(6, 0);
+        @include m(6, 0);
+        @include s(6, 0, 1);
+        ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+    }
+    article {
+        @include l(6, 0);
+        @include m(6, 0);
+        @include s(6, 0, 0);
+        #titre_article {
+            @include l(6, 0);
+            @include m(6, 0);
+            @include s(6, 0, 0);
+            text-align: center;
+        }
+        section {
+            @include l(2, 0);
+            @include m(3, 0);
+            @include s(6, 0, 0);
+        }
+    }
+}
+
+section {
+    border: 1px solid;
+    img {
+        width: 10%;
+    }
+}

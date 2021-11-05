@@ -1,0 +1,228 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: cadetblue;
+  height: 100px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 3px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header #titre {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin: auto;
+  color: white;
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1.5%;
+}
+
+main #menu {
+  margin-top: 0.8em;
+  margin-bottom: 2em;
+  background-color: #ABDDC2;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+@media only screen and (min-width: 769px) {
+  main #menu {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main #menu {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  main #menu {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+main #menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style: none;
+}
+
+main #menu ul li {
+  font-size: 1.3em;
+}
+
+main .contenu {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1.5%;
+}
+
+@media only screen and (min-width: 769px) {
+  main .contenu {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main .contenu {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  main .contenu {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+main .contenu #titre_article {
+  text-align: center;
+}
+
+@media only screen and (min-width: 769px) {
+  main .contenu #titre_article {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main .contenu #titre_article {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  main .contenu #titre_article {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+main .contenu .etiquette {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1.5%;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: #C5EDD7;
+}
+
+@media only screen and (min-width: 769px) {
+  main .contenu .etiquette {
+    grid-column: span 2;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main .contenu .etiquette {
+    grid-column: span 3;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  main .contenu .etiquette {
+    grid-column: span 6;
+    margin-left: 1.5%;
+  }
+}
+
+main .contenu .etiquette img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+@media only screen and (min-width: 769px) {
+  main .contenu .etiquette img {
+    grid-column: span 2;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  main .contenu .etiquette div {
+    grid-column: span 4;
+    margin-left: 1.5%;
+  }
+}
+
+main .contenu .etiquette .titre_produit {
+  text-align: center;
+}
+
+main .contenu .etiquette:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 15px;
+}
+
+main #login {
+  background-color: #bed8cb;
+  -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  height: 300px;
+}
+
+@media only screen and (min-width: 769px) {
+  main #login {
+    grid-column: span 5;
+    margin-left: 17.91667%;
+  }
+}
+
+main #login #se_connecter {
+  text-align: center;
+}
+
+main #login #login_email {
+  background-color: white;
+  width: 50%;
+  border-radius: 10px;
+  margin: auto;
+}
+
+main #login #login_password {
+  background-color: white;
+  width: 50%;
+  border-radius: 10px;
+  margin: auto;
+}
+
+main #login section #btn_login {
+  margin-left: 11em;
+  background: #94C9AB;
+  border-radius: 15px;
+}
+/*# sourceMappingURL=style.css.map */

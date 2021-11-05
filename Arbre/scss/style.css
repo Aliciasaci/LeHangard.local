@@ -1,0 +1,100 @@
+#titre {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0;
+}
+@media only screen and (min-width: 769px) {
+  main #menu {
+    grid-column: span 6;
+    margin-left: 0%;
+  }
+}
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main #menu {
+    grid-column: span 6;
+    margin-left: 0%;
+  }
+}
+@media only screen and (max-width: 428px) {
+  main #menu {
+    grid-column: span 6;
+    margin-left: 0%;
+    order: 1;
+  }
+}
+main #menu ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+@media only screen and (min-width: 769px) {
+  main article {
+    grid-column: span 6;
+    margin-left: 0%;
+  }
+}
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main article {
+    grid-column: span 6;
+    margin-left: 0%;
+  }
+}
+@media only screen and (max-width: 428px) {
+  main article {
+    grid-column: span 6;
+    margin-left: 0%;
+    order: 0;
+  }
+}
+main article #titre_article {
+  text-align: center;
+}
+@media only screen and (min-width: 769px) {
+  main article #titre_article {
+    grid-column: span 6;
+    margin-left: 0%;
+  }
+}
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main article #titre_article {
+    grid-column: span 6;
+    margin-left: 0%;
+  }
+}
+@media only screen and (max-width: 428px) {
+  main article #titre_article {
+    grid-column: span 6;
+    margin-left: 0%;
+    order: 0;
+  }
+}
+@media only screen and (min-width: 769px) {
+  main article section {
+    grid-column: span 2;
+    margin-left: 0%;
+  }
+}
+@media only screen and (min-width: 429px) and (max-width: 768px) {
+  main article section {
+    grid-column: span 3;
+    margin-left: 0%;
+  }
+}
+@media only screen and (max-width: 428px) {
+  main article section {
+    grid-column: span 6;
+    margin-left: 0%;
+    order: 0;
+  }
+}
+
+section {
+  border: 1px solid;
+}
+section img {
+  width: 10%;
+}/*# sourceMappingURL=style.css.map */
