@@ -4,7 +4,6 @@ namespace mf\auth;
 use Illuminate\Support\Facades\Route;
 use mf\auth\exception\AuthentificationException;
 use mf\router\Router;
-use application\model\Producteur;
 use application\model\Compte;
 
 class Authentification extends AbstractAuthentification
@@ -28,13 +27,6 @@ class Authentification extends AbstractAuthentification
         $this->user_login = $username;
         $_SESSION['mail'] = $username;
         $this->logged_in = true;
-        
-        $compte = Compte::select()->where("mail","=",$_SESSION['mail'])->first();
-        if ($compte->role === 'p') {
-            $router->executeRoute('commandeproduit');
-        }else{
-            $router->executeRoute('board');
-        }
     }
 
     public function logout()

@@ -2,13 +2,8 @@
 
 namespace application\control;
 
-use application\model\CommandeProduit as ModelCommandeProduit;
 use application\model\Producteur;
-use application\model\Produit;
-use application\model\CommandeProduit;
-use mf\utils\HttpRequest;
 use \application\view\appView as appView;
-use \mf\router\Router;
 
 
 class AppProducteurController extends \mf\control\AbstractController

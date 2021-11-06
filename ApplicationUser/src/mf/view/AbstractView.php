@@ -78,7 +78,7 @@ abstract class AbstractView {
      *
      */
     
-    abstract protected function renderBody($selector, $message);
+    abstract protected function renderBody($selector);
     
     /* Méthodes render
      * 
@@ -97,7 +97,7 @@ abstract class AbstractView {
      *
      */
     
-    public function render($selector, $message=null){
+    public function render($selector){
         /* le titre du document */
         $title = self::$app_title;
 
@@ -108,7 +108,7 @@ abstract class AbstractView {
             $styles .= '<link rel="stylesheet" href="'.$app_root.'/'.$file.'"> ';
 
         /* on appele la methode renderBody de la sous classe */
-        $body = $this->renderBody($selector, $message);
+        $body = $this->renderBody($selector);
         
 
         /* construire la structure de la page 
@@ -118,21 +118,21 @@ abstract class AbstractView {
          */
                 
         $html = <<<EOT
-        <!DOCTYPE html>
-        <html lang="fr">
-            <head>
-                <meta charset="utf-8">
-                <title>${title}</title>
-                ${styles}
-            </head>
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>${title}</title>
+	    ${styles}
+    </head>
 
-            <body>
-                
-            ${body}
+    <body>
+        
+       ${body}
 
-            </body>
-        </html>
-        EOT;
+    </body>
+</html>
+EOT;
 
         /* Affichage de la page 
          *

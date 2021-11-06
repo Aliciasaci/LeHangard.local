@@ -8,8 +8,12 @@ class Compte extends \Illuminate\Database\Eloquent\Model{
     public $timestamps = false;
     
     public function producteur(){
-       return $this->belongsTo('application\model\Producteur','mail');                   
+        return $this->belongsTo('application\model\Producteur', 'mail');
     }
+    public function gerant(){
+        return $this->belongsTo('application\model\Producteur','mail');
+    }
+    
 
 
 

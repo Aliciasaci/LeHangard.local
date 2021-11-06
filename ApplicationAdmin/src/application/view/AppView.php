@@ -2,27 +2,19 @@
 namespace application\view;
 
 use Illuminate\Contracts\Auth\Authenticatable;
-use mf\auth\Authentification;
 use \mf\router\Router as Router;
-use mf\utils\HttpRequest;
 use application\auth\appAuthentification;
-use application\model\CommandeProduit;
 use application\model\Compte;
 use application\model\Producteur;
 use application\model\Commande;
-use application\model\Produit;
 
 class AppView extends \mf\view\AbstractView
 {
-
     public function __construct($data)
     {
         parent::__construct($data);
     }
 
-    /**
-     * Header
-     */
     private function renderHeader()
     {
         return '
@@ -32,9 +24,6 @@ class AppView extends \mf\view\AbstractView
     </header>';
     }
 
-    /**Footer
-     * 
-     */
     private function renderFooter()
     {
       return '<footer></footer></body>';
@@ -150,6 +139,7 @@ class AppView extends \mf\view\AbstractView
         $commandes = $this->data; 
         //nbr des commandes
         $nbr_commandes = count($commandes);
+
         //nbr des clients
         $emails = Commande::select("mail_client")->distinct()->get();
         $nbr_client = count($emails);
@@ -231,52 +221,59 @@ class AppView extends \mf\view\AbstractView
      */
     protected function renderviewCommandeClientDetail(){
         $route = new Router();
-        $commande = $this->data;
-        $tab_temp = array();
+        $commande = $this->data;                      
        $HtmlCommandedetail = "<article id='content_container'>
        <section class='detail_commande'>
        <p>Nom client : $commande->nom_client</p>
        <p>Mail client : $commande->mail_client</p>
        <p>telephone client : $commande->tel_client</p>
-       <p>Montant = $commande->montant</p>";
-       if ($commande->livrer == 0)
-       {
-        $HtmlCommandedetail .= "<p>Livraison et paiement : non</p>";
-       }else{
-        $HtmlCommandedetail .= "<p>Livraison et paiement : oui</p>";
-       }
-       if ($commande->livrer == 0) {
-           $HtmlCommandedetail .="<button type='submit'><a href=".$route->urlFor("validerCommande", [['id',$commande->id]]).">Confirmer livraison/paiement</a></button>";
-       }
+       <p>Montant total = $commande->montant euro</p><hr>";
        //les petites commandes de la grosse commande
        $petitescommande_commande = $commande->commandesProduits()->get();
-       foreach($petitescommande_commande as $pc){
-           $produit_commande = $pc->produit()->get();
-           //recuperer l'ensemble des producteurs 
-           $producteur = Producteur::select()->get();
-           foreach($producteur as $p){
-               $producteur_courant = $p->id;
-                foreach($produit_commande as $prodc){        //récuperer tous les produit commandé appartenant aux producteurs 
-              $tab_temp = [];
-                    if($p->id === $prodc->id)                     //alors ce produit commandé appartient à ce producteur
-                    $tab_temp[] = $prodc->id;                    //dans le tableau, on a tous les id des produits commandé pour le producteur $p->id   
-                }
-            for($i=0;$i<count($tab_temp);$i++){
-               $id_produit = $tab_temp[$i];
-                $produit = Produit::select()->where('id','=',$id_produit)->first();
-                $HtmlCommandedetail .= "<p>$produit->nom ";
-                $producteur = $produit->producteur()->first();
-                $HtmlCommandedetail .="du producteur: $producteur->nom</p>";
-            }
-          }
+       $producteurs = Producteur::select()->get();
+       foreach ($producteurs as $producteur) {
+           $commandepetitdetail = "";
+           $produit = $producteur->produits()->get();
+           foreach ($produit as $p) {
+               $commande_produit = $p->commandeproduit()->get();
+               foreach ($commande_produit as $cp) {
+                   if ($cp->id_commande == $commande->id) {
+                       $commandepetitdetail.="
+                    <p><b>le produit</b> : $p->nom<br/>
+                    <b>le prix </b>:  $p->tarif_unitaire  euro/$p->unite<br/>
+                    <b>nombre d'unité : </b> $cp->quantite unité<br/></p><hr>";
+                    
+                   }
+               }
+           }
+           if (strlen($commandepetitdetail) > 0) {
+               $HtmlCommandedetail .= "<p><b>Producteur:</b> $producteur->nom</p>";
+               $HtmlCommandedetail .=  $commandepetitdetail;
+           }
        }
-       $HtmlCommandedetail .="<section></article></main>";
+       if ($commande->livrer == 0)
+       {
+        $HtmlCommandedetail .= "<p><b>Livraison et paiement</b> : non</p>";
+       }else{
+        $HtmlCommandedetail .= "<p><b>Livraison et paiement</b>: oui</p>";
+       }
+       if ($commande->livrer == 0) {
+        $HtmlCommandedetail .="<button type='submit' id='button_valider'><a href=".$route->urlFor("validerCommande", [['id',$commande->id]]).">Confirmer livraison/paiement</a></button>";
+    }
+       $HtmlCommandedetail .="
+       <section></article></main>";
        return $HtmlCommandedetail;
 
     }
 
+
+    
+
     protected function renderValiderCommande(){
-        return "Commande validé !";
+        return "<article id='content_container'>
+        <section id=\"commande_valide\">
+        <h4>Livraison et paiement confirmé</h4>
+        </section></article></main>";
     }
     //l'ensemble des commandes trié par producteur
     protected function renderviewCommandeProducteur()
@@ -285,20 +282,20 @@ class AppView extends \mf\view\AbstractView
         $producteurs = $this->data;                                               //l'ensemble des producteurs
         foreach($producteurs as $producteur){   
             $HtmlCommandeProduit .="<section class='carte_detail_commande'>
-            <h3>$producteur->nom</h3>";                                  
+            <h3>Producteur : $producteur->nom</h3><hr>";                                  
             $produit = $producteur->produits()->get();                           //get tous les produits d'un certain producteur 
             foreach ($produit as $p) {
                 $commande_produit = $p->commandeproduit()->get();                //get toutes les commandes concernant un certain produit apparetenant à un certain producteur
                 $HtmlCommandeProduit .="
-                <p><b>le produit</b> : $p->nom<br/>
+                <p><b>produit</b> : $p->nom<br/>
                 <b>le prix :</b> $p->tarif_unitaire euro/$p->unite<br/>";
                 foreach ($commande_produit as $cp) {
                     $HtmlCommandeProduit .="
-                    <b>quantite commandé</b> : $cp->quantite unité</p>
+                    <b>Commande $cp->id</b> : $cp->quantite unité<br/>
                     ";
                 }
             }
-            $HtmlCommandeProduit.="</section>";
+            $HtmlCommandeProduit.="</p></section>";
         }
         $HtmlCommandeProduit .="</article></main>";
         return $HtmlCommandeProduit;

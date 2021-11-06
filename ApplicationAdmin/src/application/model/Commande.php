@@ -12,4 +12,6 @@ class Commande extends \Illuminate\Database\Eloquent\Model{
         return $this->hasMany('application\model\CommandeProduit','id_commande');
    }
 
+   
+
 }

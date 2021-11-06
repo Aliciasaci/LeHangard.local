@@ -30,14 +30,12 @@ class AppGerantController extends \mf\control\AbstractController
         
     }
 
-    public function viewCommandeClient()
+    public function viewCommandeClient()            
     {
-        $emailUser = $_SESSION['mail'];
-        $user = Gerant::select()->where('mail',"=",$emailUser)->first();
         $commande_client = Commande::select()->get();                        //récupération de toute les commandes
         $viewcommande = new appView($commande_client);
         $viewcommande->setAppTitle('Commande par clients');
-        $viewcommande->render('renderviewCommandeClient');
+        $viewcommande->render('renderviewCommandeClient');                  
         
     }
         public function viewCommandeClientDetail(){
